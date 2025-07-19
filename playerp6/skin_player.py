@@ -23,7 +23,7 @@ class Ui_SkinPlayer(object):
     def setupUi(self, SkinPlayer):
         if not SkinPlayer.objectName():
             SkinPlayer.setObjectName(u"SkinPlayer")
-        SkinPlayer.resize(512, 367)
+        SkinPlayer.resize(527, 362)
         SkinPlayer.setStyleSheet(u"* {\n"
 "	background-color: rgb(30, 30, 30);\n"
 "}\n"
@@ -31,7 +31,7 @@ class Ui_SkinPlayer(object):
 "	background-color: rgb(30, 30, 30);\n"
 "}\n"
 "QLabel {\n"
-"	font: 9pt \"Segoe UI\";\n"
+"	font: 9pt \"Monospace\";\n"
 "	color: rgb(226, 226, 226);\n"
 "}\n"
 "QPushButton {\n"
@@ -106,10 +106,10 @@ class Ui_SkinPlayer(object):
 
         self.lb_time = QLabel(self.page)
         self.lb_time.setObjectName(u"lb_time")
-        self.lb_time.setMinimumSize(QSize(52, 18))
-        self.lb_time.setMaximumSize(QSize(52, 18))
+        self.lb_time.setMinimumSize(QSize(86, 18))
+        self.lb_time.setMaximumSize(QSize(86, 18))
         font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
+        font1.setFamilies([u"Monospace"])
         font1.setPointSize(9)
         font1.setBold(False)
         font1.setItalic(False)
@@ -158,8 +158,8 @@ class Ui_SkinPlayer(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.lb_time_t = QLabel(self.page_2)
         self.lb_time_t.setObjectName(u"lb_time_t")
-        self.lb_time_t.setMinimumSize(QSize(72, 18))
-        self.lb_time_t.setMaximumSize(QSize(72, 18))
+        self.lb_time_t.setMinimumSize(QSize(86, 18))
+        self.lb_time_t.setMaximumSize(QSize(86, 18))
         self.lb_time_t.setFont(font1)
         self.lb_time_t.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -203,8 +203,8 @@ class Ui_SkinPlayer(object):
 
         self.lb_time_rem = QLabel(self.page_2)
         self.lb_time_rem.setObjectName(u"lb_time_rem")
-        self.lb_time_rem.setMinimumSize(QSize(72, 18))
-        self.lb_time_rem.setMaximumSize(QSize(72, 18))
+        self.lb_time_rem.setMinimumSize(QSize(86, 18))
+        self.lb_time_rem.setMaximumSize(QSize(86, 18))
         self.lb_time_rem.setFont(font1)
         self.lb_time_rem.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -254,7 +254,7 @@ class Ui_SkinPlayer(object):
     def retranslateUi(self, SkinPlayer):
         SkinPlayer.setWindowTitle(QCoreApplication.translate("SkinPlayer", u"Form", None))
         self.bt_play.setText(QCoreApplication.translate("SkinPlayer", u"P", None))
-        self.lb_time.setText(QCoreApplication.translate("SkinPlayer", u"00:00:00", None))
+        self.lb_time.setText(QCoreApplication.translate("SkinPlayer", u"00:00:00.000", None))
         self.lb_vol.setText(QCoreApplication.translate("SkinPlayer", u"100", None))
         self.bt_stop.setText(QCoreApplication.translate("SkinPlayer", u"S", None))
         self.lb_time_t.setText(QCoreApplication.translate("SkinPlayer", u"00:00:00.000", None))
@@ -266,3 +266,4 @@ class Ui_SkinPlayer(object):
         self.bt_cap.setText(QCoreApplication.translate("SkinPlayer", u"C", None))
         self.bt_toggle.setText(QCoreApplication.translate("SkinPlayer", u"T", None))
     # retranslateUi
+
