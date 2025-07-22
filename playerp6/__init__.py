@@ -55,7 +55,10 @@ class PlayerP6(QWidget):
         self.ui.lb_vol.setText(str(vol))
 
     def update_ui(self):
-        if self.duration > 0:
+        if self.duration <= 0 or not self.media_player.hasVideo():
+            return
+        
+        if self.media_player.playbackState() == QMediaPlayer.PlayingState:
             self.ui.sld_tiempo.blockSignals(True)
             self.ui.sld_tiempo.setValue(int(self.position*500/self.duration))
             self.ui.sld_tiempo.blockSignals(False)
@@ -65,6 +68,9 @@ class PlayerP6(QWidget):
         self.ui.lb_time_t.setText(self.format_time(self.position))
         time_rem = self.duration - self.position
         self.ui.lb_time_rem.setText(self.format_time(time_rem))
+
+    def get_current_time(self) -> str:
+        return self.format_time(self.position)
 
     def format_time(self, milliseconds):
         """Convierte milisegundos a formato HH:MM:SS.mmm"""
@@ -91,6 +97,7 @@ class PlayerP6(QWidget):
             
     def set_volume(self, volume):
         self.audio_output.setVolume(volume / 100.0)
+        self.ui.lb_vol.setText(f'{volume}')
         
     def forward_5s(self):
         current_position = self.media_player.position()
@@ -160,13 +167,19 @@ class PlayerP6(QWidget):
     def state_changed(self, state):
         if state == QMediaPlayer.PlayingState:
             self.is_playing = True
+            if not self.timer.isActive():
+                self.timer.start(100)
         else:
             self.is_playing = False
+            self.timer.stop()
 
     def set_videopath(self, file_path:str):
         if file_path:
             self.media_player.setSource(QUrl.fromLocalFile(file_path))
             self.setWindowTitle(f"Reproductor de Video - {os.path.basename(file_path)}")
+            # if not self.timer.isActive():
+            if self.is_playing:
+                self.timer.start(100)
 
     def toggle_control(self):
         index = 1 if self.ui.sw.currentIndex()==0 else 0

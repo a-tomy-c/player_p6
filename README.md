@@ -15,4 +15,6 @@ video player basico realizado con PySide6
 - el valor maximo del slide de tiempo lo subi de 100 a 500 para que se mueva mas
 - corregi el metodo set_vol
 - ordene el player
+- fix valor del label volumen al mover el slide
+- el `timer` se ejecuta solo cuando el player esta reproduciendo video
 
