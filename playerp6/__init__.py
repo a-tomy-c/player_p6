@@ -41,6 +41,7 @@ class PlayerP6(QWidget):
         self.ui.bt_toggle.clicked.connect(self.toggle_control)
         self.ui.bt_stop.clicked.connect(self.stop)
         self.ui.sld_tiempo.valueChanged.connect(self.set_position)
+        self.ui.sld_tiempo.sliderReleased.connect(self.update_labels_time)
         self.ui.sld_vol.valueChanged.connect(self.set_volume)
         self.media_player.positionChanged.connect(self.position_changed)
         self.media_player.durationChanged.connect(self.duration_changed)

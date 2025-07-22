@@ -18,3 +18,5 @@ video player basico realizado con PySide6
 - fix valor del label volumen al mover el slide
 - el `timer` se ejecuta solo cuando el player esta reproduciendo video
 - fix actualiza los labels de tiempo cuando el video esta en pausa, al adelantar, retroceder, next y back frame
+- fix al mover el slider de tiempo, si esta pausado ya se actualiza los labels del tiempo
+
